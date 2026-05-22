@@ -1,0 +1,9 @@
+# swap / backup files
+*.swp
+*.swo
+
+# logs
+*.log
+
+# mason installs (optional)
+mason/

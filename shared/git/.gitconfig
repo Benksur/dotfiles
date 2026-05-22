@@ -1,0 +1,20 @@
+[user]
+    name = Benksur
+    email = tyjbehnke1@gmail.com
+
+[init]
+    defaultBranch = main
+
+[pull]
+    rebase = false
+
+[core]
+    editor = nvim
+    autocrlf = input
+
+[alias]
+    st = status
+    co = checkout
+    br = branch
+    cm = commit
+    lg = log --oneline --graph --decorate --all

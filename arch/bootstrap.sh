@@ -11,7 +11,8 @@ sudo pacman -S --needed --noconfirm \
   unzip \
   zsh \
   neovim \
-  tmux
+  tmux \
+  btop
 
 if [[ "$SHELL" != "$(which zsh)" ]]; then
   echo "Changing default shell to zsh..."

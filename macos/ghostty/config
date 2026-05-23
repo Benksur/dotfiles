@@ -2,7 +2,7 @@
 # https://ghostty.org/docs/config
 
 # Dark cool grey (matches simple-bar Stone / zsh)
-background = 12141a
+background = 0a0a0a
 foreground = b4bac4
 cursor-color = b4bac4
 selection-background = 252830
@@ -19,7 +19,7 @@ window-padding-y = 8
 window-decoration = true
 macos-titlebar-style = hidden
 macos-option-as-alt = true
-background-opacity = 0.85
+background-opacity = 0.92
 background-blur = 20
 
 # Cursor

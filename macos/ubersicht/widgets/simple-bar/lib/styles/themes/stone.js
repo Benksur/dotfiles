@@ -1,25 +1,22 @@
-// Dark cool grey — bar matches ghostty (#12141a @ ~85% opacity)
-// Widget accents are solid greys (for widgetsBackgroundColorAsForeground)
-const barA = 0.88;
-const surfaceA = 0.6;
-
+// Monochrome grayscale — solid (no transparency)
+// Widget accents are solid greys (widgetsBackgroundColorAsForeground)
 export const theme = {
   name: "Stone",
   kind: "dark",
-  main: `rgba(18, 20, 26, ${barA})`,
-  mainAlt: `rgba(22, 24, 30, ${barA})`,
-  minor: `rgba(60, 64, 72, ${surfaceA})`,
-  red: "#d4d8e0",
-  green: "#bcc4ce",
-  yellow: "#e8ebf0",
-  orange: "#a8b0bc",
-  blue: "#c5cad4",
-  magenta: "#b8bec8",
-  cyan: "#ccd2dc",
-  black: "#0c0d10",
-  white: "#8b939f",
-  foreground: "#d8dce4",
-  transparentDark: "rgba(0, 0, 0, 0.05)",
+  main: "#0a0a0a",
+  mainAlt: "#141414",
+  minor: "#484848",
+  red: "#e8e8e8",
+  green: "#d8d8d8",
+  yellow: "#f0f0f0",
+  orange: "#c8c8c8",
+  blue: "#dcdcdc",
+  magenta: "#d0d0d0",
+  cyan: "#e0e0e0",
+  black: "#050505",
+  white: "#909090",
+  foreground: "#f0f0f0",
+  transparentDark: "rgba(0, 0, 0, 0.2)",
   defaultFont: "JetBrains Mono, Monaco, Menlo, monospace",
   barHeight: "34px",
   compactBarHeight: "28px",
@@ -29,9 +26,9 @@ export const theme = {
   itemRadius: "7px",
   itemInnerMargin: "2px 6px",
   itemOuterMargin: "0 0 0 5px",
-  hoverRing: "0 0 0 2px rgba(255, 255, 255, 0.75)",
-  focusRing: "0 0 0 2px rgb(255, 255, 255)",
-  lightShadow: "0 5px 10px rgba(0, 0, 0, 0.24)",
+  hoverRing: "0 0 0 2px rgba(255, 255, 255, 0.5)",
+  focusRing: "0 0 0 2px rgba(255, 255, 255, 0.65)",
+  lightShadow: "none",
   transitionEasing: "cubic-bezier(0.4, 0, 0.2, 1)",
-  clickEffect: "rgba(255, 255, 255, 0.3)",
+  clickEffect: "rgba(255, 255, 255, 0.15)",
 };

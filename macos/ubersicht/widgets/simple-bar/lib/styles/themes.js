@@ -27,6 +27,7 @@ import * as NightOwl from "./themes/night-owl";
 import * as NightfoxDark from "./themes/nightfox-dark";
 import * as NightfoxLight from "./themes/nightfox-light";
 import * as VscodeDarkModern from "./themes/vscode-dark-modern";
+import * as Stone from "./themes/stone";
 import * as RosePine from "./themes/rose-pine";
 import * as RosePineMoon from "./themes/rose-pine-moon";
 import * as RosePineDawn from "./themes/rose-pine-dawn";
@@ -64,6 +65,7 @@ export const collection = {
   NightfoxDark: NightfoxDark.theme,
   NightfoxLight: NightfoxLight.theme,
   VscodeDarkModern: VscodeDarkModern.theme,
+  Stone: Stone.theme,
   RosePine: RosePine.theme,
   RosePineMoon: RosePineMoon.theme,
   RosePineDawn: RosePineDawn.theme,

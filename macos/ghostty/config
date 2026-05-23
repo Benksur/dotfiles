@@ -1,12 +1,12 @@
 # Ghostty — managed in ~/.dotfiles/macos/ghostty (symlinked by install.sh)
 # https://ghostty.org/docs/config
 
-# Muted dark palette (matches simple-bar dotfiles theme)
-background = 1c1d21
-foreground = c5c9d0
-cursor-color = c5c9d0
-selection-background = 2e3036
-selection-foreground = dfe1e6
+# Dark cool grey (matches simple-bar Stone / zsh)
+background = 12141a
+foreground = b4bac4
+cursor-color = b4bac4
+selection-background = 252830
+selection-foreground = d8dce4
 
 # Typography
 font-family = JetBrains Mono
@@ -21,6 +21,7 @@ macos-titlebar-style = hidden
 macos-option-as-alt = true
 background-opacity = 0.85
 background-blur = 20
+
 # Cursor
 cursor-style = bar
 cursor-style-blink = false
@@ -28,20 +29,20 @@ cursor-style-blink = false
 # Shell (login shell from chsh)
 shell-integration-features = cursor,sudo,title
 
-# Subtle palette for CLI tools
-palette = 0=#141518
-palette = 1=#b48a8e
-palette = 2=#8f9f85
-palette = 3=#a89f7a
-palette = 4=#7d8fa8
-palette = 5=#9a8fa8
-palette = 6=#7a9494
-palette = 7=#c5c9d0
-palette = 8=#6e737a
-palette = 9=#b48a8e
-palette = 10=#8f9f85
-palette = 11=#a89f7a
-palette = 12=#7d8fa8
-palette = 13=#9a8fa8
-palette = 14=#7a9494
-palette = 15=#dfe1e6
+# Dark cool grey ANSI palette
+palette = 0=#0c0d10
+palette = 1=#a87080
+palette = 2=#6d8a84
+palette = 3=#949aa8
+palette = 4=#6a85a8
+palette = 5=#8480a0
+palette = 6=#688a94
+palette = 7=#b4bac4
+palette = 8=#6e7684
+palette = 9=#a87080
+palette = 10=#6d8a84
+palette = 11=#949aa8
+palette = 12=#6a85a8
+palette = 13=#8480a0
+palette = 14=#688a94
+palette = 15=#d8dce4

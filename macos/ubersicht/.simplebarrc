@@ -30,7 +30,7 @@
   },
   "themes": {
     "lightTheme": "OneLight",
-    "darkTheme": "VscodeDarkModern",
+    "darkTheme": "Stone",
     "colorMain": "",
     "colorMainAlt": "",
     "colorMinor": "",
@@ -298,6 +298,6 @@
     }
   },
   "customStyles": {
-    "styles": "/* Theme colors come from darkTheme/lightTheme — avoid :root { --var } here */"
+    "styles": "/* Colors: darkTheme Stone — see widgets/simple-bar/lib/styles/themes/stone.js */"
   }
 }

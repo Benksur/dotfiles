@@ -1,3 +1,4 @@
 brew "neovim"
 brew "btop"
 brew "neofetch"
+cask "ubersicht"

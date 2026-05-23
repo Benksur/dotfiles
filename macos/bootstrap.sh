@@ -27,4 +27,6 @@ chsh -s "$(which zsh)" || true
 
 mkdir -p "$HOME/.config" "$HOME/bin"
 
+osascript -e 'tell application "System Events" to set autohide menu bar of dock preferences to true'
+
 echo "==> macOS bootstrap done"

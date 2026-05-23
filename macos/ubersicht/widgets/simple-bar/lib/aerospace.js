@@ -30,8 +30,10 @@ export async function focusWindow(id) {
 export async function getSpaces(displayId) {
   const settings = Settings.get();
   const { aerospacePath = "/opt/homebrew/bin/aerospace" } = settings.global;
+  const { hideEmptySpaces } = settings.spacesDisplay;
+  const emptyFilter = hideEmptySpaces ? " --empty no" : "";
   const json = await Uebersicht.run(
-    `${aerospacePath} list-workspaces --monitor ${displayId} --json --format "%{workspace} %{monitor-appkit-nsscreen-screens-id}"`
+    `${aerospacePath} list-workspaces --monitor ${displayId}${emptyFilter} --json --format "%{workspace} %{monitor-appkit-nsscreen-screens-id}"`
   );
   return Utils.parseJson(json);
 }

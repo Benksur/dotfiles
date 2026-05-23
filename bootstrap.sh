@@ -1,11 +1,15 @@
 #!/usr/bin/env bash
+# Entry point: OS-specific bootstrap, then shared install links.
 set -euo pipefail
+
+DOTFILES="${DOTFILES:-$HOME/.dotfiles}"
 
 case "$(uname)" in
   Darwin)
-    bash ~/.dotfiles/macos/bootstrap.sh
+    bash "$DOTFILES/macos/bootstrap.sh"
     ;;
   Linux)
-    bash ~/.dotfiles/arch/bootstrap.sh
+    bash "$DOTFILES/arch/bootstrap.sh"
+    bash "$DOTFILES/install.sh"
     ;;
 esac

@@ -158,4 +158,12 @@ export const styles = /* css */ `
   white-space: nowrap;
   transition: transform 160ms var(--transition-easing);
 }
+.simple-bar--animations-disabled .process__window {
+  transition: none;
+}
+.simple-bar--animations-disabled .process__icon,
+.simple-bar--animations-disabled .process__inner,
+.simple-bar--animations-disabled .process__name {
+  transition: none;
+}
 `;

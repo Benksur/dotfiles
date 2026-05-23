@@ -70,6 +70,9 @@ const AerospaceProcess = React.lazy(
 // their local refresh functions
 const refreshFrequency = false;
 
+// Incremented on every Übersicht widget refresh so AeroSpace context re-fetches spaces
+let renderGeneration = 0;
+
 // Init settings from file if existing
 Settings.init();
 
@@ -142,6 +145,8 @@ Utils.injectStyles("simple-bar-index-styles", [
 
 // Render function to display the bar
 function render({ output, error }) {
+  renderGeneration += 1;
+
   // Define base classes for the bar based on settings
   const baseClasses = Utils.classNames("simple-bar", {
     "simple-bar--floating": settings.global.floatingBar,
@@ -214,7 +219,7 @@ function render({ output, error }) {
             </YabaiContextProvider>
           )}
           {windowManager === "aerospace" && (
-            <AerospaceContextProvider>
+            <AerospaceContextProvider renderGeneration={renderGeneration}>
               <AerospaceSpaces />
               <AerospaceProcess />
             </AerospaceContextProvider>

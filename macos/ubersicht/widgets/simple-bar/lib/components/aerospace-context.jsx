@@ -29,10 +29,11 @@ export default React.memo(AerospaceContextProvider);
  * @param {React.ReactNode} props.children - The child components
  * @returns {JSX.Element} The provider component
  */
-function AerospaceContextProvider({ children }) {
+function AerospaceContextProvider({ children, renderGeneration = 0 }) {
   // Get settings, displayIndex, and displays from SimpleBarContext
   const { settings, displayIndex, displays } = useSimpleBarContext();
   const { enableServer, aerospaceServerRefresh } = settings.global;
+  const { hideEmptySpaces } = settings.spacesDisplay;
   const serverEnabled = enableServer && aerospaceServerRefresh;
 
   // State to store aerospace spaces
@@ -46,6 +47,16 @@ function AerospaceContextProvider({ children }) {
 
     let focusedWindow = {};
     const [focusedSpace] = await Aerospace.getFocusedSpace();
+    const focusedWorkspace = focusedSpace?.workspace;
+    if (focusedWorkspace) {
+      setAerospaceSpaces((current) => {
+        if (!current.length) return current;
+        return current.map((space) => ({
+          ...space,
+          focused: space.workspace === focusedWorkspace,
+        }));
+      });
+    }
     try {
       [focusedWindow] = await Aerospace.getFocusedWindow();
       // eslint-disable-next-line no-empty
@@ -53,7 +64,22 @@ function AerospaceContextProvider({ children }) {
     const spaces = await Promise.all(
       displays.map(async (display) => {
         const id = display["monitor-id"];
-        const result = await Aerospace.getSpaces(id);
+        let result = await Aerospace.getSpaces(id);
+        if (hideEmptySpaces && focusedSpace?.workspace) {
+          const hasFocused = result.some(
+            (space) => space.workspace === focusedSpace.workspace,
+          );
+          if (!hasFocused) {
+            result = [
+              ...result,
+              {
+                workspace: focusedSpace.workspace,
+                "monitor-appkit-nsscreen-screens-id":
+                  display["monitor-appkit-nsscreen-screens-id"],
+              },
+            ];
+          }
+        }
         return Promise.all(
           result.map(async (space) => {
             const focused = space.workspace === focusedSpace.workspace;
@@ -76,7 +102,7 @@ function AerospaceContextProvider({ children }) {
       return;
     }
     setAerospaceSpaces(spaces.flat());
-  }, [displays]);
+  }, [displays, hideEmptySpaces]);
 
   // Refreshes spaces with the data sent by simple-bar-server if it exists
   // in order to speed up the process then refreshes everything in background
@@ -104,10 +130,10 @@ function AerospaceContextProvider({ children }) {
   // Use server socket to fetch and reset spaces
   useServerSocket("spaces", serverEnabled, refreshSpaces, resetSpaces);
 
-  // Fetch spaces on component mount and when displayIndex changes
+  // Re-fetch when Übersicht refreshes the widget (AeroSpace callbacks) or display changes
   React.useEffect(() => {
     refreshSpaces();
-  }, [refreshSpaces, displayIndex]);
+  }, [refreshSpaces, displayIndex, renderGeneration]);
 
   return (
     <AerospaceContext.Provider value={{ spaces: aerospaceSpaces }}>

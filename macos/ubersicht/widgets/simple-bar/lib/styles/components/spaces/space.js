@@ -149,4 +149,13 @@ box-shadow: var(--focus-ring);
   stroke: rgba(0, 0, 0, 0.3);
   stroke-width: 2px;
 }
+.simple-bar--animations-disabled .space,
+.simple-bar--animations-disabled .stickies {
+  animation: none;
+}
+.simple-bar--animations-disabled .space__inner,
+.simple-bar--animations-disabled .spaces__add,
+.simple-bar--animations-disabled .stickies__inner {
+  transition: none;
+}
 `;

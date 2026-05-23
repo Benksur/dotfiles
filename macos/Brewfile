@@ -1,6 +1,7 @@
 brew "neovim"
 brew "btop"
 brew "neofetch"
+cask "ghostty"
 cask "ubersicht"
 tap "nikitabobko/tap"
 cask "aerospace"

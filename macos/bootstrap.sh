@@ -18,7 +18,7 @@ fi
 
 eval "$(/opt/homebrew/bin/brew shellenv 2>/dev/null || /usr/local/bin/brew shellenv)"
 
-echo "==> Installing Homebrew packages (Übersicht, AeroSpace, ...)..."
+echo "==> Installing Homebrew packages (Ghostty, Übersicht, AeroSpace, ...)..."
 brew bundle --file="$DOTFILES/macos/Brewfile"
 
 if [ ! -d "$HOME/.oh-my-zsh" ]; then

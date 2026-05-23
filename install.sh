@@ -16,11 +16,12 @@ if [ "$(uname)" = "Darwin" ]; then
   echo "==> Linking macOS dotfiles (AeroSpace, Übersicht, simple-bar)..."
 
   UBERSICHT_WIDGETS="$HOME/Library/Application Support/Übersicht/widgets"
-  mkdir -p "$UBERSICHT_WIDGETS"
+  mkdir -p "$HOME/.config" "$UBERSICHT_WIDGETS"
 
   ln -sfn "$DOTFILES/macos/aerospace/default-config.toml" "$HOME/.aerospace.toml"
   ln -sfn "$DOTFILES/macos/ubersicht/widgets/simple-bar" "$UBERSICHT_WIDGETS/simple-bar"
   ln -sfn "$DOTFILES/macos/ubersicht/.simplebarrc" "$HOME/.simplebarrc"
+  ln -sfn "$DOTFILES/macos/ghostty" "$HOME/.config/ghostty"
 
   if command -v aerospace &>/dev/null; then
     aerospace reload-config 2>/dev/null || true

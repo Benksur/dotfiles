@@ -22,6 +22,7 @@ if [ "$(uname)" = "Darwin" ]; then
   ln -sfn "$DOTFILES/macos/ubersicht/widgets/simple-bar" "$UBERSICHT_WIDGETS/simple-bar"
   ln -sfn "$DOTFILES/macos/ubersicht/.simplebarrc" "$HOME/.simplebarrc"
   ln -sfn "$DOTFILES/macos/ghostty" "$HOME/.config/ghostty"
+  ln -sfn "$DOTFILES/macos/karabiner" "$HOME/.config/karabiner"
 
   if command -v aerospace &>/dev/null; then
     aerospace reload-config 2>/dev/null || true

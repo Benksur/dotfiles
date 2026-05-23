@@ -57,6 +57,7 @@ open -ga "AeroSpace" 2>/dev/null || open -a "AeroSpace" 2>/dev/null || true
 echo "==> macOS bootstrap done"
 echo ""
 echo "Manual steps:"
+echo "  • Karabiner-Elements: enable in System Settings → Privacy & Security → Input Monitoring"
 echo "  • System Settings → Privacy & Security → Accessibility: enable Übersicht and AeroSpace"
 echo "  • Übersicht menu bar icon → refresh widgets if simple-bar does not appear"
 echo "  • simple-bar settings: click the bar, then press Cmd+, (config: ~/.simplebarrc)"

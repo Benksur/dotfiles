@@ -1,0 +1,59 @@
+#!/usr/bin/env bash
+# Symlink ~/.aerospace.toml to a profile and reload AeroSpace.
+set -euo pipefail
+
+DOTFILES="${DOTFILES:-$HOME/.dotfiles}"
+AEROSPACE_DIR="$DOTFILES/macos/aerospace"
+TARGET="${HOME}/.aerospace.toml"
+STATE="${HOME}/.config/aerospace/active-profile"
+
+usage() {
+  cat <<EOF
+Usage: aerospace-switch <standard|ultrawide>
+
+  standard   — laptop / 16:9 (default)
+  ultrawide  — 21:9 or wider; letterboxed side gaps
+
+Active profile is stored in ~/.config/aerospace/active-profile
+EOF
+}
+
+profile="${1:-}"
+if [[ -z "$profile" ]]; then
+  if [[ -f "$STATE" ]]; then
+    echo "Active profile: $(cat "$STATE")"
+  elif [[ -L "$TARGET" ]]; then
+    echo "Active profile: $(basename "$(readlink "$TARGET")" .toml)"
+  else
+    echo "No active profile (not symlinked)"
+  fi
+  usage
+  exit 0
+fi
+
+case "$profile" in
+  standard|ultrawide) ;;
+  -h|--help) usage; exit 0 ;;
+  *)
+    echo "Unknown profile: $profile" >&2
+    usage >&2
+    exit 1
+    ;;
+esac
+
+src="$AEROSPACE_DIR/$profile.toml"
+if [[ ! -f "$src" ]]; then
+  echo "Missing config: $src" >&2
+  exit 1
+fi
+
+mkdir -p "$(dirname "$STATE")"
+ln -sfn "$src" "$TARGET"
+echo "$profile" >"$STATE"
+
+if command -v aerospace &>/dev/null; then
+  aerospace reload-config
+  echo "Switched to $profile and reloaded AeroSpace."
+else
+  echo "Switched to $profile. Start or reload AeroSpace to apply."
+fi

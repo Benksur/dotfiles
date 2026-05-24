@@ -1,0 +1,99 @@
+# AeroSpace — standard display (laptop or 16:9 external)
+# Switch: aerospace-switch standard
+
+config-version = 2
+
+after-startup-command = []
+start-at-login = false
+
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+
+accordion-padding = 30
+default-root-container-layout = 'tiles'
+default-root-container-orientation = 'auto'
+
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+automatically-unhide-macos-hidden-apps = false
+
+persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B",
+                         "C", "D", "E", "F", "G", "I", "M", "N", "O", "P", "Q",
+                         "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+
+on-mode-changed = []
+
+on-focus-changed = [
+  "exec-and-forget osascript -e 'tell application id \"tracesOf.Uebersicht\" to refresh widget id \"simple-bar-index-jsx\"'",
+]
+exec-on-workspace-change = [
+  "exec-and-forget osascript -e 'tell application id \"tracesOf.Uebersicht\" to refresh widget id \"simple-bar-index-jsx\"'",
+]
+
+[key-mapping]
+    preset = 'qwerty'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'finder'
+run = 'layout floating'
+
+[gaps]
+    inner.horizontal = 10
+    inner.vertical =   10
+    outer.left =       10
+    outer.bottom =     10
+    outer.top =        15
+    outer.right =      10
+
+[mode.main.binding]
+
+    alt-cmd-ctrl-slash = 'layout tiles horizontal vertical'
+    alt-cmd-ctrl-comma = 'layout accordion horizontal vertical'
+
+    alt-cmd-ctrl-h = 'focus left'
+    alt-cmd-ctrl-j = 'focus down'
+    alt-cmd-ctrl-k = 'focus up'
+    alt-cmd-ctrl-l = 'focus right'
+
+    shift-alt-cmd-ctrl-h = 'move left'
+    shift-alt-cmd-ctrl-j = 'move down'
+    shift-alt-cmd-ctrl-k = 'move up'
+    shift-alt-cmd-ctrl-l = 'move right'
+
+    alt-cmd-ctrl-minus = 'resize smart -50'
+    alt-cmd-ctrl-equal = 'resize smart +50'
+
+    alt-cmd-ctrl-1 = 'workspace 1'
+    alt-cmd-ctrl-2 = 'workspace 2'
+    alt-cmd-ctrl-3 = 'workspace 3'
+    alt-cmd-ctrl-4 = 'workspace 4'
+    alt-cmd-ctrl-5 = 'workspace 5'
+    alt-cmd-ctrl-6 = 'workspace 6'
+    alt-cmd-ctrl-7 = 'workspace 7'
+    alt-cmd-ctrl-8 = 'workspace 8'
+    alt-cmd-ctrl-9 = 'workspace 9'
+
+    shift-alt-cmd-ctrl-1 = 'move-node-to-workspace 1'
+    shift-alt-cmd-ctrl-2 = 'move-node-to-workspace 2'
+    shift-alt-cmd-ctrl-3 = 'move-node-to-workspace 3'
+    shift-alt-cmd-ctrl-4 = 'move-node-to-workspace 4'
+    shift-alt-cmd-ctrl-5 = 'move-node-to-workspace 5'
+    shift-alt-cmd-ctrl-6 = 'move-node-to-workspace 6'
+    shift-alt-cmd-ctrl-7 = 'move-node-to-workspace 7'
+    shift-alt-cmd-ctrl-8 = 'move-node-to-workspace 8'
+    shift-alt-cmd-ctrl-9 = 'move-node-to-workspace 9'
+
+    alt-cmd-ctrl-tab = 'workspace-back-and-forth'
+    shift-alt-cmd-ctrl-tab = 'move-workspace-to-monitor --wrap-around next'
+
+    shift-alt-cmd-ctrl-semicolon = 'mode service'
+
+[mode.service.binding]
+    esc = ['reload-config', 'mode main']
+    r = ['flatten-workspace-tree', 'mode main']
+    f = ['layout floating tiling', 'mode main']
+    backspace = ['close-all-windows-but-current', 'mode main']
+
+    shift-alt-cmd-ctrl-h = ['join-with left', 'mode main']
+    shift-alt-cmd-ctrl-j = ['join-with down', 'mode main']
+    shift-alt-cmd-ctrl-k = ['join-with up', 'mode main']
+    shift-alt-cmd-ctrl-l = ['join-with right', 'mode main']

@@ -9,7 +9,7 @@
     "bottomBar": false,
     "sideDecoration": false,
     "inlineSpacesOptions": true,
-    "disableAnimations": true,
+    "disableAnimations": false,
     "spacesBackgroundColorAsForeground": false,
     "widgetsBackgroundColorAsForeground": true,
     "widgetMaxWidth": "100px",
@@ -96,7 +96,7 @@
     "cryptoWidget": false,
     "stockWidget": false,
     "youtubeMusicWidget": false,
-    "musicWidget": true,
+    "musicWidget": false,
     "mpdWidget": false,
     "browserTrackWidget": false,
     "notificationsWidget": false,
@@ -281,21 +281,7 @@
     "lookAheadHours": 12
   },
   "userWidgets": {
-    "userWidgetsList": {
-      "1": {
-        "title": "brew",
-        "icon": "Anki",
-        "backgroundColor": "--cyan",
-        "output": "export PATH=\"/opt/homebrew/bin:$PATH\" && brew outdated | wc -l | tr -d ' '",
-        "onClickAction": "",
-        "onRightClickAction": "",
-        "onMiddleClickAction": "",
-        "refreshFrequency": "1800000",
-        "showOnDisplay": "",
-        "active": true,
-        "noIcon": ""
-      }
-    }
+    "userWidgetsList": {}
   },
   "customStyles": {
     "styles": "/* Colors: darkTheme Stone — see widgets/simple-bar/lib/styles/themes/stone.js */"

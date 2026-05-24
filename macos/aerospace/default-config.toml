@@ -1,3 +1,6 @@
+# Unused reference copy (upstream-style template with full comments).
+# Active configs: standard.toml / ultrawide.toml — switch with aerospace-switch
+#
 # Place a copy of this config to ~/.aerospace.toml
 # After that, you can edit ~/.aerospace.toml to your liking
 

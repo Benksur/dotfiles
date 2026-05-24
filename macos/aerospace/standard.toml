@@ -85,6 +85,9 @@ run = 'layout floating'
     alt-cmd-ctrl-tab = 'workspace-back-and-forth'
     shift-alt-cmd-ctrl-tab = 'move-workspace-to-monitor --wrap-around next'
 
+    # Hyper+c: force-quit focused app (SIGKILL, not close/hide window)
+    alt-cmd-ctrl-c = 'exec-and-forget "$HOME/.dotfiles/macos/aerospace/aerospace-quit-app"'
+
     shift-alt-cmd-ctrl-semicolon = 'mode service'
 
 [mode.service.binding]

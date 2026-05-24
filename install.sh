@@ -8,6 +8,7 @@ echo "==> Linking shared dotfiles..."
 
 ln -sf "$DOTFILES/shared/zsh/.zshrc" "$HOME/.zshrc"
 ln -sf "$DOTFILES/shared/git/.gitconfig" "$HOME/.gitconfig"
+ln -sf "$DOTFILES/shared/tmux/.tmux.conf" "$HOME/.tmux.conf"
 ln -sfn "$DOTFILES/shared/nvim" "$HOME/.config/nvim"
 ln -sfn "$DOTFILES/shared/btop" "$HOME/.config/btop"
 ln -sfn "$DOTFILES/shared/neofetch" "$HOME/.config/neofetch"
@@ -21,6 +22,8 @@ if [ "$(uname)" = "Darwin" ]; then
   mkdir -p "$HOME/bin"
   ln -sf "$DOTFILES/macos/aerospace/aerospace-switch" "$HOME/bin/aerospace-switch"
   chmod +x "$DOTFILES/macos/aerospace/aerospace-switch"
+  ln -sf "$DOTFILES/macos/aerospace/aerospace-quit-app" "$HOME/bin/aerospace-quit-app"
+  chmod +x "$DOTFILES/macos/aerospace/aerospace-quit-app"
   "$DOTFILES/macos/aerospace/aerospace-switch" standard
   ln -sfn "$DOTFILES/macos/ubersicht/widgets/simple-bar" "$UBERSICHT_WIDGETS/simple-bar"
   ln -sfn "$DOTFILES/macos/ubersicht/.simplebarrc" "$HOME/.simplebarrc"

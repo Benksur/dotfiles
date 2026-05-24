@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Force-quit the app owning AeroSpace's focused window (Hyper+c).
+set -euo pipefail
+
+AEROSPACE="${AEROSPACE:-/opt/homebrew/bin/aerospace}"
+if ! command -v "$AEROSPACE" >/dev/null 2>&1; then
+  AEROSPACE=aerospace
+fi
+
+app="$("$AEROSPACE" list-windows --focused --format '%{app-name}')"
+if [[ -z "$app" ]]; then
+  exit 0
+fi
+
+/usr/bin/killall -9 "$app" 2>/dev/null || true

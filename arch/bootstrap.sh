@@ -15,7 +15,8 @@ sudo pacman -S --needed --noconfirm \
   neovim \
   tmux \
   btop \
-  fastfetch 
+  fastfetch \
+  ghostty
 
 # ----------------------------
 # 3. Install Oh My Zsh

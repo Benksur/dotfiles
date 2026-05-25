@@ -1,4 +1,4 @@
-# Ghostty — managed in ~/.dotfiles/macos/ghostty (symlinked by install.sh)
+# Ghostty — managed in ~/.dotfiles/shared/ghostty (symlinked by install.sh)
 # https://ghostty.org/docs/config
 
 # Dark cool grey (matches simple-bar Stone / zsh)

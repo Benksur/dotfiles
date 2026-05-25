@@ -10,6 +10,5 @@ case "$(uname)" in
     ;;
   Linux)
     bash "$DOTFILES/arch/bootstrap.sh"
-    bash "$DOTFILES/install.sh"
     ;;
 esac

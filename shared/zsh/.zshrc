@@ -1,5 +1,5 @@
 export ZSH="$HOME/.oh-my-zsh/"
-ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.dotfiles/shared/zsh/omz-custom}"
+ZSH_CUSTOM="${ZSH_CUSTOM:-${DOTFILES:-$HOME/.dotfiles}/shared/zsh/omz-custom}"
 
 ZSH_THEME="stone"
 

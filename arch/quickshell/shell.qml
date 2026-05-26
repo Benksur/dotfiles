@@ -8,15 +8,25 @@ import QtQuick.Layouts
 PanelWindow {
     id: root
 
-    // Theme
-    property color colBg: "#1a1b26"
-    property color colFg: "#a9b1d6"
-    property color colMuted: "#444b6a"
-    property color colCyan: "#0db9d7"
-    property color colBlue: "#7aa2f7"
-    property color colYellow: "#e0af68"
+    // Stone — monochrome greys only
+    property color colBg: "#0a0a0a"
+    property color colFg: "#f0f0f0"
+    property color colMuted: "#484848"
+    property color colDim: "#909090"
     property string fontFamily: "JetBrainsMono Nerd Font"
     property int fontSize: 14
+
+    function focusWorkspace(id) {
+        if (Hyprland.usingLua) {
+            Hyprland.dispatch("hl.dsp.focus({ workspace = " + id + " })")
+            return
+        }
+        const ws = Hyprland.workspaces.values.find(w => w.id === id)
+        if (ws)
+            ws.activate()
+        else
+            Hyprland.dispatch("workspace " + id)
+    }
 
     // System data
     property int cpuUsage: 0
@@ -24,12 +34,10 @@ PanelWindow {
     property var lastCpuIdle: 0
     property var lastCpuTotal: 0
 
-    // Processes and timers here...
-
     anchors.top: true
     anchors.left: true
     anchors.right: true
-    implicitHeight: 30
+    implicitHeight: 34
     color: root.colBg
 
     RowLayout {
@@ -37,46 +45,56 @@ PanelWindow {
         anchors.margins: 8
         spacing: 8
 
-        // Workspaces
         Repeater {
             model: 9
-            Text {
-                property var ws: Hyprland.workspaces.values.find(w => w.id === index + 1)
-                property bool isActive: Hyprland.focusedWorkspace?.id === (index + 1)
-                text: index + 1
-                color: isActive ? root.colCyan : (ws ? root.colBlue : root.colMuted)
-                font { family: root.fontFamily; pixelSize: root.fontSize; bold: true }
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: Hyprland.dispatch("workspace " + (index + 1))
+            delegate: Rectangle {
+                required property int index
+                Layout.preferredWidth: 24
+                Layout.preferredHeight: 24
+                color: "transparent"
+
+                property int wsId: index + 1
+                property var ws: Hyprland.workspaces.values.find(w => w.id === wsId)
+                property bool isActive: Hyprland.focusedWorkspace?.id === wsId
+
+                Text {
+                    anchors.centerIn: parent
+                    text: parent.wsId
+                    color: parent.isActive ? root.colFg : (parent.ws ? root.colDim : root.colMuted)
+                    font {
+                        family: root.fontFamily
+                        pixelSize: root.fontSize
+                        bold: parent.isActive
+                    }
+                }
+
+                TapHandler {
+                    onTapped: root.focusWorkspace(parent.wsId)
                 }
             }
         }
 
         Item { Layout.fillWidth: true }
 
-        // CPU
         Text {
             text: "CPU: " + cpuUsage + "%"
-            color: root.colYellow
+            color: root.colFg
             font { family: root.fontFamily; pixelSize: root.fontSize; bold: true }
         }
 
         Rectangle { width: 1; height: 16; color: root.colMuted }
 
-        // Memory
         Text {
             text: "Mem: " + memUsage + "%"
-            color: root.colCyan
+            color: root.colFg
             font { family: root.fontFamily; pixelSize: root.fontSize; bold: true }
         }
 
         Rectangle { width: 1; height: 16; color: root.colMuted }
 
-        // Clock
         Text {
             id: clock
-            color: root.colBlue
+            color: root.colFg
             font { family: root.fontFamily; pixelSize: root.fontSize; bold: true }
             text: Qt.formatDateTime(new Date(), "ddd, MMM dd - HH:mm")
             Timer {

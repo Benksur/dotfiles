@@ -1,2 +1,5 @@
 .DS_Store
 *.lock
+lazy-lock.json
+nix/home-manager/result
+

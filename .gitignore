@@ -1,6 +1,6 @@
 .DS_Store
 *.lock
-lazy-lock.json
+**/lazy-lock.json
 nix/home-manager/result
 
 # Machine-local secrets / overrides

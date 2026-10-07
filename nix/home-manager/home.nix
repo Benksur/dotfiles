@@ -22,6 +22,7 @@
     pkgs.gnumake
     pkgs.pavucontrol
     pkgs.lua-language-server
+    pkgs.rofi
   ];
 
   home.sessionVariables = {

@@ -2,11 +2,16 @@
 
 
 local mainMod = "SUPER"
+local secondMod = "SUPER + SHIFT"
 local terminal    = "kitty"
 local fileManager = "dolphin"
 local menu        = "hyprlauncher"
+local launcher = "rofi -show drun -show-icons"
+local runner = "rofi -show run"
 
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(terminal))
+hl.bind(mainMod .. " + Space", hl.dsp.exec_cmd(launcher))
+hl.bind(secondMod .. " + Space", hl.dsp.exec_cmd(runner))
 hl.bind(mainMod .. " + C", hl.dsp.window.close())
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))

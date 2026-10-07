@@ -3,3 +3,7 @@
 lazy-lock.json
 nix/home-manager/result
 
+# Machine-local secrets / overrides
+.zshrc.local
+*.local
+

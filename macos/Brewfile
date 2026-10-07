@@ -1,6 +1,5 @@
 brew "neovim"
 brew "btop"
-brew "neofetch"
 brew "tmux"
 cask "ghostty"
 cask "ubersicht"

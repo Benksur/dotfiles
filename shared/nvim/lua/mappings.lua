@@ -20,4 +20,6 @@ map("n", "<leader>ds", function()
   require("dap").terminate()
 end, { desc = "Debug: Stop" })
 
+map("n", "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<CR>", { desc = "Git toggle line blame" })
+
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")

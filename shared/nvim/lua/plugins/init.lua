@@ -1,7 +1,27 @@
 return {
   {
     "williamboman/mason.nvim",
-    opts = {},
+    opts = {
+      ensure_installed = {
+        "json-lsp",
+        "prettier",
+        "typescript-language-server",
+        "eslint-lsp",
+      },
+    },
+  },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensure_installed = {
+        "javascript",
+        "typescript",
+        "tsx",
+        "html",
+        "css",
+        "json",
+      },
+    },
   },
   {
     "jay-babu/mason-nvim-dap.nvim",
@@ -36,6 +56,14 @@ return {
     end,
   },
   {
+    "lewis6991/gitsigns.nvim",
+    opts = {
+      current_line_blame_opts = {
+        delay = 100,
+      },
+    },
+  },
+  {
     "stevearc/conform.nvim",
     opts = require "configs.conform",
   },
@@ -44,5 +72,12 @@ return {
     config = function()
       require "configs.lspconfig"
     end,
+  },
+  {
+    "junegunn/vim-easy-align",
+    cmd = "EasyAlign",
+    keys = {
+      { "ga", "<Plug>(EasyAlign)", mode = { "n", "x" }, desc = "Easy Align" },
+    },
   },
 }

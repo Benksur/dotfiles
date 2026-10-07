@@ -36,3 +36,8 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#484848'
 
 export PATH="$HOME/bin:$PATH"
 export EDITOR="nvim"
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
+
+[[ -f "$HOME/.zshrc.local" ]] && source "$HOME/.zshrc.local"

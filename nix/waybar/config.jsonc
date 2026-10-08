@@ -1,0 +1,17 @@
+{
+   "include": [
+     "$HOME/.config/waybar/Modules",
+     "$HOME/.config/waybar/ModulesCustom",
+     ],
+    "layer": "top",
+    "position": "top",
+    "margin-top": 10,
+    "margin-left": 20,
+    "margin-right": 20,
+    "modules-left": [ "clock", "tray", "hyprland/workspaces", "mpris"],
+    "modules-center": [ "hyprland/window" ],
+    "modules-right": [ "custom/update", "network", "pulseaudio", "custom/power"  ],
+    "hyprland/window": {
+        "max-length": 50
+    }
+}

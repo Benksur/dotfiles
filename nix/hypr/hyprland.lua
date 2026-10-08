@@ -42,7 +42,7 @@ hl.config({
         rounding_power = 2,
 
         active_opacity   = 1.0,
-        inactive_opacity = 1.0,
+        inactive_opacity = 0.9,
 
         shadow = {
             enabled      = true,
@@ -52,7 +52,7 @@ hl.config({
         },
 
         blur = {
-            enabled   = true,
+            enabled   = false,
             size      = 3,
             passes    = 1,
             vibrancy  = 0.1696,
@@ -123,6 +123,9 @@ hl.config({
         kb_model   = "",
         kb_options = "caps:escape",
         kb_rules   = "",
+
+        repeat_rate = 35,
+        repeat_delay = 300,
 
         follow_mouse = 1,
 

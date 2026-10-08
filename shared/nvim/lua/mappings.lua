@@ -20,6 +20,10 @@ map("n", "<leader>ds", function()
   require("dap").terminate()
 end, { desc = "Debug: Stop" })
 
+map("n", "<leader>fr", function()
+  require("telescope.builtin").lsp_references()
+end, { desc = "Find function references with Telescope" })
+
 map("n", "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<CR>", { desc = "Git toggle line blame" })
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")

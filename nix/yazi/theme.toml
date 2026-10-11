@@ -1,0 +1,132 @@
+[mgr]
+cwd = { fg = "#FF8F2E", bold = true }
+
+find_keyword  = { fg = "#FFC62F", bg = "#1F1F1F", bold = true, italic = true, underline = true }
+find_position = { fg = "#FF8F2E", bg = "reset", bold = true, italic = true }
+
+marker_marked   = { fg = "#FFC62F", bg = "#FFC62F" }
+marker_selected = { fg = "#FF8F2E", bg = "#FF8F2E" }
+marker_copied   = { fg = "#DB9833", bg = "#DB9833" }
+marker_cut      = { fg = "#F85931", bg = "#F85931" }
+
+count_selected = { fg = "#1F1F1F", bg = "#FF8F2E" }
+count_copied   = { fg = "#1F1F1F", bg = "#DB9833" }
+count_cut      = { fg = "#1F1F1F", bg = "#F85931" }
+
+border_symbol = "│"
+border_style  = { fg = "#3C3C3C" }
+
+[tabs]
+active   = { fg = "#1F1F1F", bg = "#FF8F2E", bold = true }
+inactive = { fg = "#7F7B66", bg = "#242424" }
+
+sep_inner = { open = "", close = "" }
+sep_outer = { open = "", close = "" }
+
+[mode]
+normal_main = { fg = "#1F1F1F", bg = "#FF8F2E", bold = true }
+normal_alt  = { fg = "#FF8F2E", bg = "#242424" }
+
+select_main = { fg = "#1F1F1F", bg = "#FFC62F", bold = true }
+select_alt  = { fg = "#FFC62F", bg = "#242424" }
+
+unset_main = { fg = "#1F1F1F", bg = "#F85931", bold = true }
+unset_alt  = { fg = "#F85931", bg = "#242424" }
+
+[indicator]
+parent  = { fg = "#1F1F1F", bg = "#FFC62F", bold = true }
+current = { fg = "#1F1F1F", bg = "#FF8F2E", bold = true }
+preview = { underline = true }
+
+padding = { open = "▓", close = "▓▒░" }
+
+[status]
+overall = { fg = "#E0E0E0" }
+
+sep_left  = { open = "", close = "" }
+sep_right = { open = "", close = "" }
+
+perm_sep   = { fg = "#3C3C3C" }
+perm_type  = { fg = "#FFC62F" }
+perm_read  = { fg = "#DB9833" }
+perm_write = { fg = "#F85931" }
+perm_exec  = { fg = "#CC7F66" }
+
+progress_label  = { fg = "#FF8F2E", bold = true }
+progress_normal = { fg = "#FFC62F", bg = "#2A2A2A" }
+progress_error  = { fg = "#F85931", bg = "#2A2A2A" }
+
+[which]
+mask            = { bg = "#242424" }
+cand            = { fg = "#FFC62F" }
+rest            = { fg = "#7F7B66" }
+desc            = { fg = "#FF8F2E" }
+separator       = "  "
+separator_style = { fg = "#3C3C3C" }
+
+[confirm]
+border  = { fg = "#798283" }
+title   = { fg = "#FF8F2E", bold = true }
+body    = { fg = "#BCAC8F" }
+list    = {}
+btn_yes = { fg = "#1F1F1F", bg = "#FFC62F", bold = true }
+btn_no  = { fg = "#F85931", bold = true }
+
+[spot]
+border   = { fg = "#798283" }
+title    = { fg = "#FF8F2E", bold = true }
+tbl_col  = { fg = "#FFC62F" }
+tbl_cell = { fg = "#DB9833", underline = true }
+
+[notify]
+title_info  = { fg = "#DB9833" }
+title_warn  = { fg = "#FFC62F" }
+title_error = { fg = "#F85931" }
+
+[pick]
+border   = { fg = "#798283" }
+active   = { fg = "#1F1F1F", bg = "#FF8F2E", bold = true }
+inactive = { fg = "#7F7B66", bg = "#242424" }
+
+[input]
+border   = { fg = "#798283" }
+title    = { fg = "#FFC62F" }
+value    = { fg = "#E0E0E0" }
+selected = { reversed = true }
+
+[cmp]
+border = { fg = "#798283" }
+
+[tasks]
+border  = { fg = "#798283" }
+title   = { fg = "#FF8F2E", bold = true }
+hovered = { fg = "#FFC62F", underline = true }
+
+[help]
+on      = { fg = "#FFC62F" }
+run     = { fg = "#DB9833" }
+desc    = { fg = "#BCAC8F" }
+hovered = { reversed = true, bold = true }
+footer  = { fg = "#1F1F1F", bg = "#FFC62F" }
+
+[filetype]
+rules = [
+    { mime = "inode/directory", fg = "#FF8F2E", bold = true },
+    { mime = "image/*", fg = "#FFC62F" },
+    { mime = "{audio,video}/*", fg = "#DB9833" },
+    { mime = "application/{pdf,doc,rtf,odt,docx,xlsx,pptx}", fg = "#FFC62F" },
+    { url = "*.{txt,md,rst,csv,*json*,toml,yml,yaml,xml,html,ini,cfg,conf,log}", fg = "#CC7F66" },
+    { url = "*.{pdf,doc,docx,odt,xls,xlsx,ppt,pptx}", fg = "#FFC62F" },
+    { mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", fg = "#DB9833" },
+    { url = "*.{zip,rar,7z,tar,gz,bz2,xz,zst,lz,lzma,iso,img}", fg = "#DB9833" },
+    { url = "*", fg = "#BCAC8F" },
+    { url = "*/", fg = "#FF8F2E", bold = true },
+]
+
+[icon]
+dirs = [
+    { name = "*", text = "󰉋", fg = "#FF8F2E" },
+]
+conds = [
+    { if = "dir", text = "󰉋", fg = "#FF8F2E" },
+]

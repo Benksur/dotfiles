@@ -23,6 +23,7 @@
     pkgs.pavucontrol
     pkgs.lua-language-server
     pkgs.rofi
+    pkgs.yazi
   ];
 
   home.sessionVariables = {

@@ -24,6 +24,8 @@
     pkgs.lua-language-server
     pkgs.rofi
     pkgs.yazi
+    pkgs.spotatui
+    pkgs.bibata-cursors
   ];
 
   home.sessionVariables = {

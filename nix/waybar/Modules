@@ -1,12 +1,6 @@
 //Main
 
 {
-
-"battery": {
-        "format": "{capacity}% {icon}",
-        "format-icons": ["", "", "", "", ""]
-    },
-    
     "clock": {
         "format": " {:%I:%M %p}", // AM PM format
         //"format": "  {:%H:%M}",// 24H
@@ -50,9 +44,19 @@
 	     "format-icons": [
 	     	"󰤯", "󰤟", "󰤢", "󰤥", "󰤨"
 	     ],
-	     "on-click": "omarchy-launch-wifi"
+	     "on-click": ""
     },
-  
+
+    "cpu": {
+      "interval": 5,
+      "format": " {usage}%",
+      "max-length": 10
+    },
+
+    "memory": {
+      "interval": 5,
+      "format": " {percentage}%"
+    },
  "hyprland/workspaces": {
 	"format": "{icon}",
   	"format-icons": {
@@ -73,70 +77,5 @@
              "*": 5
        }
   },    
-  
-  "tray": {
-    "icon-size": 12,
-    "spacing": 6,
-    "icons": {
-        "blueman": "bluetooth",
-        "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
-    }
-  },
-
-  "mpris": {
-	"interval": 10,
-	"format": "{player_icon} {dynamic}",
-	"format-paused": "{status_icon} {artist} {title}",
-	"on-click-middle": "playerctl play-pause",
-	"on-click": "playerctl previous",
-	"on-click-right": "playerctl next",
-	"scroll-step": 5.0,
-	"on-scroll-up": "$HOME/.config/hypr/scripts/volume.sh --inc",
-	"on-scroll-down": "$HOME/.config/hypr/scripts/volume.sh --dec",
-	"smooth-scrolling-threshold": 1,
-	"tooltip": true,
-	"tooltip-format": "{status_icon} {dynamic}\nLeft Click: previous\nMid Click: Pause\nRight Click: Next",
-	"player-icons": {
-		"chromium": "",
-		"default": "",
-		"firefox": "",
-		"kdeconnect": "",
-		"mopidy": "",
-		"mpv": "󰐹",
-		"spotify": "",
-		"vlc": "󰕼",
-	},
-	"status-icons": {
-		"paused": "󰐎",
-		"playing": "",
-		"stopped": "",
-	},
-	"dynamic-order": ["artist", "title"],
-	"ignored-players": ["firefox", "zen"],
-	"max-length": 50,
- },
-    
-  "custom/omarchy": {
-    "format": "󰣇",
-    "on-click": "omarchy-menu",
-    "on-click-right": "xdg-terminal-exec",
-    "tooltip-format": "Omarchy Menu\n\nSuper + Alt + Space"
-  },
-
-  "custom/update": {
-    "format": "",
-    "exec": "omarchy-update-available",
-    "on-click": "omarchy-launch-floating-terminal-with-presentation omarchy-update",
-    "tooltip-format": "Omarchy update available",
-    "signal": 7,
-    "interval": 21600
-  },
-  
-  "custom/vicinae": {
-  "format": "",
-  "on-click": "hyprctl dispatch exec 'vicinae toggle'",
-  "interval": 0,
-  "tooltip-format": "Vicinae\n\nSuper + Space"
-  },
-
+ 
 }

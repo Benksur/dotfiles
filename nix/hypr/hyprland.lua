@@ -13,10 +13,11 @@ hl.monitor({
 
 hl.on("hyprland.start", function ()
   hl.exec_cmd("waybar & hyprpaper")
+  hl.exec_cmd("hyprctl setcursor Bibata-Modern-Ice 30")
 end)
 
-hl.env("XCURSOR_SIZE", "24")
-hl.env("HYPRCURSOR_SIZE", "24")
+hl.env("XCURSOR_SIZE", "30")
+hl.env("HYPRCURSOR_SIZE", "30")
 
 hl.config({
     general = {

@@ -60,14 +60,6 @@ tooltip label {
     margin: 0 3px;
 }
 
-#tray {
-    font-weight: 800;
-    background:alpha(#121212, 0.4);
-    border-radius: 3px;
-    padding: 0px 5px;
-    margin: 0 4px;
-}
-
 #custom-media {
     margin: 0 2px;
     padding: 2px 10px;
@@ -85,13 +77,15 @@ tooltip label {
     margin: 0 3px;
 }
 
-#mpris {
+#memory,
+#cpu {
     font-weight: 800;
     background:alpha(#121212, 0.4);
     border-radius: 3px;
     padding: 0px 5px;
-    margin: 0 2px;
+    margin: 0 3px;
 }
+
 
 #custom-update,
 #custom-reboot,

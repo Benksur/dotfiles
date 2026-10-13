@@ -26,6 +26,9 @@
     pkgs.yazi
     pkgs.spotatui
     pkgs.bibata-cursors
+    pkgs.man-pages
+    pkgs.man-pages-posix
+    pkgs.tldr
   ];
 
   home.sessionVariables = {

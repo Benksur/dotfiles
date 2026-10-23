@@ -9,9 +9,15 @@ vim.lsp.enable(servers)
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = { "*.js", "*.jsx", "*.ts", "*.tsx" },
   callback = function(args)
-    local clients = vim.lsp.get_clients { bufnr = args.buf, name = "eslint" }
-    if #clients > 0 then
-      vim.cmd "EslintFixAll"
+    local client = vim.lsp.get_clients({ bufnr = args.buf, name = "eslint" })[1]
+    if not client then
+      return
     end
+    client:request_sync("workspace/executeCommand", {
+      command = "eslint.applyAllFixes",
+      arguments = {
+        { uri = vim.uri_from_bufnr(args.buf), version = vim.lsp.util.buf_versions[args.buf] },
+      },
+    }, 5000, args.buf)
   end,
 })
